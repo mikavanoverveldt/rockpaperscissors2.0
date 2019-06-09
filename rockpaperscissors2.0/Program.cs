@@ -17,8 +17,8 @@ namespace rockpaperscissors2._0
             int bestOf = 1;
             int maxScoreCount = 1;
             bool gameContinues = true;
-
-            Console.WriteLine("Welcome to Rock Paper Scissors 2!");
+            frame.Title();
+            Console.WriteLine("Welcome to Rock Paper Scissors!");
 
             //gamemode selector
             while (!validGameMode)
@@ -28,22 +28,30 @@ namespace rockpaperscissors2._0
                 Console.WriteLine("Endless - 3");
                 Console.Write("What gamemode do you want to play? ");
                 gameMode = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+                frame.Title();
+
                 switch (gameMode)
                 {
                     case 1:
                         Console.Write("I want to play best of ");
                         bestOf = Convert.ToInt32(Console.ReadLine());
                         validGameMode = true;
+                        Console.Clear();
                         break;
                     case 2:
                         Console.Write("I want to play first to ");
                         maxScoreCount = Convert.ToInt32(Console.ReadLine());
                         validGameMode = true;
+                        Console.Clear();
                         break;
                     case 3:
                         Console.WriteLine("You chose endless game mode");
                         maxScoreCount = 99;
                         validGameMode = true;
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadLine();
+                        Console.Clear();
                         break;
                     default:
                         Console.WriteLine("Invalid gamemode choice!");
@@ -59,6 +67,7 @@ namespace rockpaperscissors2._0
             //turn
             while (gameContinues)
             {
+                frame.Title();
                 Console.Write("Write Rock, Paper of Scissors: ");
                 playerInput = Console.ReadLine();
 
@@ -137,6 +146,7 @@ namespace rockpaperscissors2._0
                     Console.WriteLine("Invalid input!");
                 }
                 gameCount++;
+                Console.WriteLine();
                 Console.WriteLine("You - " + playerScore + " Computer - " + cpuScore);
 
                 //checks if game is done
@@ -178,6 +188,7 @@ namespace rockpaperscissors2._0
             }
 
             //after game ended
+            frame.Title();
             if (cpuScore > playerScore)
             {
                 Console.WriteLine("You lost!");
